@@ -2,3 +2,6 @@ xcrun --sdk iphoneos swiftc main.swift -emit-module-path main.swiftmodule -emit-
 
 
 xcrun --sdk iphoneos swiftc inject.swift -emit-library -target arm64-apple-ios -I . -Xlinker -undefined -Xlinker dynamic_lookup -Xfrontend -disable-access-control
+
+
+install_name_tool -id @rpath/libinject.dylib libinject.dylib
