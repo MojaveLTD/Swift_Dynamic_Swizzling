@@ -5,3 +5,12 @@ xcrun --sdk iphoneos swiftc inject.swift -emit-library -target arm64-apple-ios -
 
 
 install_name_tool -id @rpath/libinject.dylib libinject.dylib
+
+
+// check if the swizzling matches
+
+nm libinject.dylib | grep swizzleME  
+
+nm $APP_EXECUTABLE | grep swizzleME  
+
+// THE OUTPUT MUST MATCH
